@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Flasky{% endblock %}
+{% block page_content %}
+<div class="page-header"> <h1>Hello!</h1>
+     </div>
+
+<div class="body"> <p>The local date and time is {{ moment(current_time).format    ('LLL'    ) }}.</p>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.12.0/react.js"></script> 
+<script type="text/jsx">
+
+      /*** @jsx React.DOM */
+
+      var helloWorld = React.createClass({
+		              render: function() {
+			                return (<h2>Greetings, from Real Python!</h2>)
+					        }
+						      });
+
+      React.render(
+		              React.createElement(helloWorld, null),
+			              document.getElementById('content')
+				            );
+          </script>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}
+
